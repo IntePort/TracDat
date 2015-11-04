@@ -117,7 +117,7 @@
       },
       "properties": {
         "administratorLogin": "tracdat",
-        "administratorLoginPassword": "IntePort1",
+        "administratorLoginPassword": "Nuventive1",
         "version": "12.0"
       },
       "resources": [
@@ -127,7 +127,7 @@
           "location": "East US",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "Microsoft.Sql/servers/tracdatsqlprod2"
+            "Microsoft.Sql/servers/tracdatsqlprod"
           ],
           "properties": {
             "startIpAddress": "0.0.0.0",
@@ -140,7 +140,7 @@
           "location": "East US",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "tracdatsqlprod2"
+            "tracdatsqlprod"
           ],
           "tags": {
             "displayName": "TracDatBlankDbCopy"
