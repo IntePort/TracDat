@@ -69,7 +69,7 @@
               },
               {
                 "virtualPath": "/TracDat",
-                "physicalPath": "site\\wwwroot"
+                "physicalPath": "site\\wwwroot\\bin\\Tomcat7\\webapps"
               },
             ],
 
