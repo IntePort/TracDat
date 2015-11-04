@@ -67,10 +67,10 @@
                 "virtualPath": "/",
                 "physicalPath": "site\\wwwroot"
               },
-              {
-                "virtualPath": "/TracDat",
-                "physicalPath": "site\\wwwroot\\bin\\Tomcat7\\webapps"
-              },
+              //{
+              //  "virtualPath": "/TracDat",
+              //  "physicalPath": "site\\wwwroot\\bin\\Tomcat7\\webapps"
+              //},
             ],
 
             "defaultDocuments": [
@@ -107,7 +107,7 @@
       ]
     },
     {
-      "name": "tracdatsqlprod2",
+      "name": "tracdatsqlprod",
       "type": "Microsoft.Sql/servers",
       "location": "East US",
       "apiVersion": "2014-04-01-preview",
