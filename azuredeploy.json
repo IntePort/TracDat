@@ -50,8 +50,6 @@
             "[resourceId('Microsoft.Web/Sites', parameters('TracDatAppName'))]"
           ],
           "properties": {
-            //"phpVersion": "5.5",
-            //"netFrameworkVersion": "v4.0",
             "use32BitWorkerProcess": false, /* 64-bit platform */
             "webSocketsEnabled": true,
             //"alwaysOn": true,
@@ -59,20 +57,12 @@
             "httpLoggingEnabled": true, /* IIS logs (aka Web server logging) */
             "logsDirectorySizeLimit": 40, /* 40 MB limit for IIS logs */
             "detailedErrorLoggingEnabled": true, /* Detailed error messages  */
-            //"remoteDebuggingEnabled": true,
-            //"remoteDebuggingVersion": "VS2013",
-
             "virtualApplications": [
               {
                 "virtualPath": "/",
                 "physicalPath": "site\\wwwroot"
-              },
-              //{
-              //  "virtualPath": "/TracDat",
-              //  "physicalPath": "site\\wwwroot\\bin\\Tomcat7\\webapps"
-              //},
+              }
             ],
-
             "defaultDocuments": [
               "index.html",
               "hostingstart.html",
@@ -88,7 +78,10 @@
             "[resourceId('Microsoft.Web/Sites', parameters('TracDatAppName'))]"
           ],
           "properties": {
-            "ConnString1": { "value": "jdbc:sqlserver://tracdatsql.database.windows.net:1433;database=demo;user=tracdat@tracdatsql;password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", "type": "SQLAzure" }
+            "ConnString1": {
+              "value": "[concat('jdbc:sqlserver://tracdatsqlprod.database.windows.net:1433;database=', toLower(concat(parameters('TracDatAppName'), '-db')), ';user=tracdat@tracdatsql;password=Nuventive1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;')]",
+              "type": "SQLAzure"
+            }
           }
         },
         {
@@ -155,6 +148,6 @@
     }
 
   ],
-    "outputs": {
-    }
+  "outputs": {
+  }
 }
