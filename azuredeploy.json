@@ -109,7 +109,7 @@
         "displayName": "tracdatprodsql"
       },
       "properties": {
-        "administratorLogin": "TracDatAdmi1n",
+        "administratorLogin": "TracDatAdmin",
         "administratorLoginPassword": "Nuventive1",
         "version": "12.0"
       },
