@@ -79,7 +79,7 @@
           ],
           "properties": {
             "ConnString1": {
-              "value": "[concat('jdbc:sqlserver://tracdatsqlprod.database.windows.net:1433;database=', toLower(concat(parameters('siteName'), '-db')), ';user=tracdat@tracdatsql;password=Nuventive1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;')]",
+              "value": "[concat('jdbc:sqlserver://tracdatprodsql.database.windows.net:1433;database=', toLower(concat(parameters('siteName'), '-db')), ';user=tracdat;password=Nuventive1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;')]",
               "type": "SQLAzure"
             }
           }
@@ -100,13 +100,13 @@
       ]
     },
     {
-      "name": "tracdatsqlprod",
+      "name": "tracdatprodsql",
       "type": "Microsoft.Sql/servers",
       "location": "East US",
       "apiVersion": "2014-04-01-preview",
       "dependsOn": [ ],
       "tags": {
-        "displayName": "tracdatsqlprod"
+        "displayName": "tracdatprodsql"
       },
       "properties": {
         "administratorLogin": "tracdat",
@@ -120,7 +120,7 @@
           "location": "East US",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "Microsoft.Sql/servers/tracdatsqlprod"
+            "Microsoft.Sql/servers/tracdatprodsql"
           ],
           "properties": {
             "startIpAddress": "0.0.0.0",
@@ -133,14 +133,14 @@
           "location": "East US",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "tracdatsqlprod"
+            "tracdatprodsql"
           ],
           "tags": {
             "displayName": "TracDatBlankDbCopy"
           },
           "properties": {
             "createMode": "Copy",
-            "sourceDatabaseId": "/subscriptions/363e0ce6-6944-4e96-a2da-d170b21902d0/resourceGroups/TracDat/providers/Microsoft.Sql/servers/tracdatsql/databases/tracdatv5_5044_blank"
+            "sourceDatabaseId": "/subscriptions/363e0ce6-6944-4e96-a2da-d170b21902d0/resourceGroups/TracDat/providers/Microsoft.Sql/servers/tracdatdemosql/databases/tracdatv5_5044_blank"
 
           }
         }
@@ -151,5 +151,3 @@
   "outputs": {
   }
 }
-
-
