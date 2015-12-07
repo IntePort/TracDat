@@ -79,7 +79,7 @@
           ],
           "properties": {
             "ConnString1": {
-              "value": "[concat('jdbc:sqlserver://tracdatprodsql.database.windows.net:1433;database=', toLower(concat(parameters('siteName'), '-db')), ';user=tracdat;password=Nuventive1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;')]",
+              "value": "[concat('jdbc:sqlserver://tracdatprodsql.database.windows.net:1433;database=', toLower(concat(parameters('siteName'), '-db')), ';user=tracdat;password=Nuventive1;encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;')]",
               "type": "SQLAzure"
             }
           }
