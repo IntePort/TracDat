@@ -78,7 +78,8 @@
             "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
           ],
           "properties": {
-            "AppSettingKey1": "-Xmx1024m"
+            "AppSettingKey1": "some value",
+            "WebAppMemory": "-Xmx1024m"
           }
         },        {
           "apiVersion": "2015-08-01",
