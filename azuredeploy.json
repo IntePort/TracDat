@@ -43,34 +43,46 @@
       },
       "resources": [
         {
+            "apiVersion": "2015-08-01",
+            "name": "web",
+            "type": "config",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+            ],
+            "properties": {
+                "use32BitWorkerProcess": false, /* 64-bit platform */
+                "webSocketsEnabled": true,
+                //"alwaysOn": true,
+                "requestTracingEnabled": true, /* Failed request tracing, aka 'freb' */
+                "httpLoggingEnabled": true, /* IIS logs (aka Web server logging) */
+                "logsDirectorySizeLimit": 40, /* 40 MB limit for IIS logs */
+                "detailedErrorLoggingEnabled": true, /* Detailed error messages  */
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot"
+                    }
+                ],
+                "defaultDocuments": [
+                    "index.html",
+                    "hostingstart.html",
+                    "login.xhtml"
+                ]
+            }
+        },
+        {
           "apiVersion": "2015-08-01",
-          "name": "web",
+          "name": "appsettings",
           "type": "config",
           "dependsOn": [
             "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
           ],
           "properties": {
-            "use32BitWorkerProcess": false, /* 64-bit platform */
-            "webSocketsEnabled": true,
-            //"alwaysOn": true,
-            "requestTracingEnabled": true, /* Failed request tracing, aka 'freb' */
-            "httpLoggingEnabled": true, /* IIS logs (aka Web server logging) */
-            "logsDirectorySizeLimit": 40, /* 40 MB limit for IIS logs */
-            "detailedErrorLoggingEnabled": true, /* Detailed error messages  */
-            "virtualApplications": [
-              {
-                "virtualPath": "/",
-                "physicalPath": "site\\wwwroot"
-              }
-            ],
-            "defaultDocuments": [
-              "index.html",
-              "hostingstart.html",
-              "login.xhtml"
-            ]
+            "AppSettingKey1": "-Xmx1024m",
+            "AppSettingKey2": "My second setting",
+            "WebMemory": "-Xmx1024m"
           }
-        },
-        {
+        },        {
           "apiVersion": "2015-08-01",
           "name": "connectionstrings",
           "type": "config",
